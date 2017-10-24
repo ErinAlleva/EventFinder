@@ -1,6 +1,7 @@
 # EventFinder
 run in eclipse, or compile both Event.java and FindEvents.java and run in command line.
 in viagogo directory
+
 \> javac \*.java
 \>java FindEvents
 
