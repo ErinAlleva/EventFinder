@@ -1,9 +1,12 @@
 # EventFinder
 run in eclipse, or compile both Event.java and FindEvents.java and run in command line.
-in viagogo directory
+Command Line:
+Create a directory and download project there, go to [yourDirectory]\EventFinder\src\viagogo
 
-\> javac \*.java <br />
-\>java FindEvents
+__\> javac \*.java <br />
+
+go up one directory to \src
+__\>java viagogo.FindEvents
 
 The program will ask for user input in the form x,y and does a bit of error checking to account for bad input. 
 The program will then return the 5 closest events with the cheapest price and the coordinates of the event location.
