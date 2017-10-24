@@ -9,26 +9,24 @@ import java.util.Scanner;
 
 public class FindEvents {
 
-	//ArrayList<Event> eventList;
 	public static void main(String[] args) {
-		//read input
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in); // read input
 		int inputX = 20;
 		int inputY = 20;
-		System.out.println("Enter x and y coordinates between -10 and 10 (x,y): ");
+		System.out.println("Enter x and y coordinates between -10 and 10 in the form x,y: ");
 		String input = scanner.next();
 		String[] split  = input.split(",");
-		if (split.length == 2) {
+		if (split.length == 2) { //make sure there are two items separated by comma
 			inputX = Integer.parseInt(split[0]);
 			inputY = Integer.parseInt(split[1]);
-		} else {
+		} else { //if not make them enter again
 			while (split.length != 2) {
 				System.out.println("Please enter coordinates in form x,y");
 				input = scanner.next();
 				split  = input.split(",");
 			}
-		}
-		while (inputY  > 10 || inputX > 10) {
+		} //make sure inputs are within range 
+		while (inputY  > 10 || inputX > 10 || inputY < -10 || inputX < -10) {
 			System.out.println("Please pick coordinates between -10 and 10");
 			input = scanner.next();
 			split  = input.split(",");
@@ -42,26 +40,26 @@ public class FindEvents {
 		Point inputPoint = new Point(inputX,inputY);
 		ArrayList<Event> eventList = new ArrayList<Event>();
 
+		//create events with ticket prices, coordinates, and event number, initializes distance to 0
 		Random random = new Random();
 		for (int i = 0; i < 200; i++) {
 			ArrayList<Double> ticketPrices = new ArrayList<Double>();
 			int x = random.nextInt(21)-10;
 			int y = random.nextInt(21)-10;
-			//numIdentifier = i
 			int numTickets = random.nextInt(24) + 1;
 			for (int j = 0; j < numTickets; j++) {
-				//TODO change number format to fit US dollar amounts
 				double price = random.nextDouble()*200 + 30;
 				price = Math.floor(price * 100) / 100;
 				ticketPrices.add(price);
-				//System.out.println(j + ": " +  price);
+				System.out.println(j + ": " +  price);
 			}
 			Event myEvent = new Event(i, x, y, ticketPrices, 0);
 			if (!eventList.contains(myEvent)) {
 				eventList.add(myEvent);
 			}
 		}
-
+		
+		//set distances from input point
 		for (int i = 0; i < eventList.size(); i++) {
 			double distFromPoint = eventList.get(i).distance(inputPoint);
 			eventList.get(i).setDistance(distFromPoint);

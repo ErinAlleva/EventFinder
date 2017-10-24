@@ -22,23 +22,18 @@ public class Event implements Comparable<Event>{
 		this.tickets = tickets;
 		this.distance = distance;
 	}
-	
+	//returns distance between input point and event that calls function
 	public double distance(Point point) {
 		double distance = Math.abs(point.x- this.getxCoord()) + Math.abs(point.y-this.getyCoord());
 		return distance;
 	}
 	
 	
-	public int hashCode(){
-        /*System.out.println("In hashcode");
-        int hashcode = 0;
-        hashcode = xCoord*20;
-        hashcode += yCoord%7;
-        return hashcode;
-        */
+	public int hashCode(){      
 		return Objects.hash(numIdentifier, xCoord, yCoord, tickets, distance);
     }
 	
+	//checks if two events have the same coordinates for .contains() arraylist method
 	public boolean equals(Object obj){
         if (obj instanceof Event) {
             Event myEvent = (Event) obj;
@@ -86,6 +81,8 @@ public class Event implements Comparable<Event>{
 	public void setDistance(Double distance) {
 		this.distance = distance;
 	}
+	
+	//compares distance for sorting
 	@Override public int compareTo(Event other) {
 		double compareDistance = ((Event)other).getDistance();
 		return (int) (this.distance - compareDistance);
