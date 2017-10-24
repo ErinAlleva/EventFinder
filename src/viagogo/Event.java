@@ -11,7 +11,7 @@ public class Event implements Comparable<Event>{
 	private double cost;
 	private int xCoord;
 	private int yCoord;
-	private ArrayList<Double> tickets; 
+	private ArrayList<Double> tickets; //list of ticket prices
 	private double distance;
 	
 	public Event(int numIdentifier, int xCoord, int yCoord, ArrayList<Double> tickets, double distance) {

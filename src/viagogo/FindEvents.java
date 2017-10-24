@@ -51,7 +51,6 @@ public class FindEvents {
 				double price = random.nextDouble()*200 + 30;
 				price = Math.floor(price * 100) / 100;
 				ticketPrices.add(price);
-				System.out.println(j + ": " +  price);
 			}
 			Event myEvent = new Event(i, x, y, ticketPrices, 0);
 			if (!eventList.contains(myEvent)) {
