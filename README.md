@@ -2,7 +2,7 @@
 run in eclipse, or compile both Event.java and FindEvents.java and run in command line.
 in viagogo directory
 
-\> javac \*.java <\br>
+\> javac \*.java <br />
 \>java FindEvents
 
 The program will ask for user input in the form x,y and does a bit of error checking to account for bad input. 
